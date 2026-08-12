@@ -1,13 +1,22 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#111827" />
-    <title>Calisthenics Tracker</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <title>Calisthenics Tracker</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div><h1>Calisthenics Tracker</h1><p>Your home workout plan</p></div>
+      <div id="dayBadge" class="badge">Push</div>
+    </header>
+    <nav id="tabs" class="tabs" aria-label="Workout days"></nav>
+    <section id="stats" class="stats"></section>
+    <main id="workout"></main>
+  </div>
+  <script src="./app.js"></script>
+</body>
 </html>
