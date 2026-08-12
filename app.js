@@ -6,21 +6,21 @@ const DAYS = [
 ];
 
 const EXERCISES = {
-  push: { type:'push', how:'Keep your body in one straight line. Lower the chest under control, then push the floor away.', progression:'Incline → Push-up → Diamond → Decline → Archer' },
-  pike: { type:'pike', how:'Keep hips high and lower the head between the hands. Press back up without collapsing the shoulders.', progression:'Hands elevated → Floor → Feet elevated → Handstand prep' },
-  diamond: { type:'push', how:'Hands close together below the chest. Lower slowly and keep elbows controlled.', progression:'Knee → Diamond → Slow diamond → Decline diamond' },
-  dip: { type:'dip', how:'Use a very stable chair. Bend the elbows and press back up without dropping too deep.', progression:'Bent knees → Straight legs → Feet elevated' },
-  plank: { type:'plank', how:'Keep ribs down, glutes tight and body straight. Breathe normally.', progression:'Knee plank → Plank → Long-lever → RKC plank' },
-  pull: { type:'pull', how:'Start from a controlled hang and pull your body toward the bar without swinging.', progression:'Dead hang → Negative → Assisted → Pull-up → Chest-to-bar' },
-  row: { type:'pull', how:'Keep the body rigid and pull the chest toward a sturdy horizontal surface.', progression:'High bar → Low bar → Feet elevated' },
-  negative: { type:'pull', how:'Start at the top and lower slowly for 3–5 seconds. Control the entire descent.', progression:'3 sec negative → 5 sec negative → Assisted pull-up' },
-  chin: { type:'pull', how:'Use an underhand grip and pull the elbows down. Avoid kicking the legs.', progression:'Assisted → Chin-up → Slow → Weighted' },
-  raise: { type:'raise', how:'Hang with straight arms and raise the knees without swinging. Finish by curling the pelvis.', progression:'Lying raise → Hanging knee raise → Straight-leg raise' },
-  squat: { type:'squat', how:'Sit the hips down between the feet and stand by driving through the whole foot.', progression:'Squat → Pause squat → Tempo squat → Jump squat' },
-  lunge: { type:'lunge', how:'Step back, keep the torso stable and lower under control. Drive through the front foot.', progression:'Assisted → Reverse lunge → Deficit reverse lunge' },
-  calf: { type:'calf', how:'Rise through the ball of the foot and lower slowly through a comfortable range.', progression:'Two-leg → Single-leg → Deficit single-leg' },
-  bridge: { type:'bridge', how:'Drive the hips up and squeeze the glutes. Avoid arching the lower back.', progression:'Bridge → Pause bridge → Single-leg bridge' },
-  hollow: { type:'plank', how:'Press the lower back into the floor and hold the body in a shallow curved shape.', progression:'Tuck → One-leg → Hollow hold' }
+  push: { name: 'Push-up', type: 'Push-up', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/push-up.gif', muscles: ['Chest', 'Triceps', 'Front delts'], equipment: 'Bodyweight', difficulty: 2, how: 'Keep your body in one straight line. Lower your chest under control, then push the floor away.', progression: ['Incline push-up', 'Push-up', 'Diamond push-up', 'Decline push-up', 'Archer push-up'] },
+  pike: { name: 'Pike push-up', type: 'Pike push-up', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/pike-push-up.gif', muscles: ['Shoulders', 'Triceps'], equipment: 'Bodyweight', difficulty: 2, how: 'Keep your hips high and lower the head between your hands. Press back up without collapsing the shoulders.', progression: ['Hands elevated', 'Floor pike push-up', 'Feet elevated', 'Handstand push-up progression'] },
+  diamond: { name: 'Diamond push-up', type: 'Diamond push-up', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/diamond-push-up.gif', muscles: ['Triceps', 'Chest'], equipment: 'Bodyweight', difficulty: 3, how: 'Place the hands close under the chest, lower slowly and keep the elbows controlled.', progression: ['Knee diamond', 'Diamond push-up', 'Slow diamond', 'Decline diamond'] },
+  dip: { name: 'Chair dip', type: 'Chair dip', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/chair-dip.gif', muscles: ['Triceps', 'Chest'], equipment: 'Stable chair', difficulty: 2, how: 'Use a very stable chair. Bend the elbows and press back up without dropping the shoulders too deep.', progression: ['Bent knees', 'Straight legs', 'Feet elevated'] },
+  plank: { name: 'Plank', type: 'Plank', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/plank.gif', muscles: ['Core', 'Shoulders'], equipment: 'Bodyweight', difficulty: 1, how: 'Keep ribs down, glutes tight and body straight. Breathe normally.', progression: ['Knee plank', 'Plank', 'Long-lever plank', 'RKC plank'] },
+  pull: { name: 'Pull-up', type: 'Pull-up', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/pull-up.gif', muscles: ['Lats', 'Biceps', 'Upper back'], equipment: 'Pull-up bar', difficulty: 4, how: 'Start from a controlled hang and pull the body toward the bar without swinging.', progression: ['Dead hang', 'Scapular pull-up', 'Negative', 'Assisted pull-up', 'Pull-up', 'Chest-to-bar'] },
+  row: { name: 'Australian row', type: 'Australian row', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/australian-row.gif', muscles: ['Upper back', 'Biceps'], equipment: 'Low sturdy bar', difficulty: 2, how: 'Keep the body rigid and pull the chest toward a sturdy horizontal surface.', progression: ['Higher bar', 'Lower bar', 'Feet elevated'] },
+  negative: { name: 'Negative pull-up', type: 'Negative pull-up', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/negative-pull-up.gif', muscles: ['Lats', 'Biceps'], equipment: 'Pull-up bar', difficulty: 3, how: 'Start at the top and lower slowly for 3–5 seconds. Control the entire descent.', progression: ['3 sec negative', '5 sec negative', 'Assisted pull-up'] },
+  chin: { name: 'Chin-up', type: 'Chin-up', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/chin-up.gif', muscles: ['Biceps', 'Lats'], equipment: 'Pull-up bar', difficulty: 3, how: 'Use an underhand grip and pull the elbows down. Avoid kicking the legs.', progression: ['Assisted chin-up', 'Chin-up', 'Slow chin-up', 'Weighted chin-up'] },
+  raise: { name: 'Hanging knee raise', type: 'Hanging knee raise', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/hanging-knee-raise.gif', muscles: ['Abs', 'Hip flexors'], equipment: 'Pull-up bar', difficulty: 3, how: 'Hang with straight arms and raise the knees without swinging. Finish by curling the pelvis.', progression: ['Lying knee raise', 'Hanging knee raise', 'Straight-leg raise'] },
+  squat: { name: 'Bodyweight squat', type: 'Squat', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/bodyweight-squat.gif', muscles: ['Quads', 'Glutes'], equipment: 'Bodyweight', difficulty: 1, how: 'Sit the hips down between the feet and stand by driving through the whole foot.', progression: ['Squat', 'Pause squat', 'Tempo squat', 'Jump squat'] },
+  lunge: { name: 'Reverse lunge', type: 'Reverse lunge', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/reverse-lunge.gif', muscles: ['Quads', 'Glutes'], equipment: 'Bodyweight', difficulty: 2, how: 'Step back, keep the torso stable and lower under control. Drive through the front foot.', progression: ['Assisted reverse lunge', 'Reverse lunge', 'Deficit reverse lunge'] },
+  calf: { name: 'Single-leg calf raise', type: 'Calf raise', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/single-leg-calf-raise.gif', muscles: ['Calves'], equipment: 'Bodyweight', difficulty: 2, how: 'Rise through the ball of the foot and lower slowly through a comfortable range.', progression: ['Two-leg calf raise', 'Single-leg calf raise', 'Deficit single-leg raise'] },
+  bridge: { name: 'Glute bridge', type: 'Glute bridge', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/glute-bridge.gif', muscles: ['Glutes', 'Hamstrings'], equipment: 'Bodyweight', difficulty: 1, how: 'Drive the hips up and squeeze the glutes. Avoid arching the lower back.', progression: ['Bridge', 'Pause bridge', 'Single-leg bridge'] },
+  hollow: { name: 'Hollow body hold', type: 'Hollow body hold', media: 'https://raw.githubusercontent.com/archo-agency/exercise-gifs/main/hollow-body-hold.gif', muscles: ['Core'], equipment: 'Bodyweight', difficulty: 3, how: 'Press the lower back into the floor and hold the body in a shallow curved shape.', progression: ['Tuck hold', 'One-leg hollow', 'Hollow hold'] }
 };
 
 const WORKOUTS = {
@@ -43,14 +43,8 @@ function save() {
   localStorage.setItem('ct-state', JSON.stringify(state));
 }
 
-function figure(type) {
-  const ground = '<line class="ground" x1="40" y1="190" x2="460" y2="190"/>';
-  if (type === 'pull' || type === 'raise') return `<svg viewBox="0 0 500 230" role="img" aria-label="Animated exercise demonstration"><line class="person" x1="125" y1="25" x2="375" y2="25"/><g class="${type}"><circle class="joint" cx="250" cy="88" r="13"/><path class="person" d="M250 102 L250 150 M250 112 L195 72 M250 112 L305 72 M250 150 L215 190 M250 150 L285 190"/></g><path class="arrow" d="M420 45 L420 165"/></svg>`;
-  if (type === 'squat') return `<svg viewBox="0 0 500 230" role="img" aria-label="Animated squat demonstration"><g class="squat"><circle class="joint" cx="250" cy="55" r="14"/><path class="person" d="M250 70 L250 120 L205 165 L180 190 M250 120 L295 165 L320 190 M250 90 L205 115 M250 90 L295 115"/></g>${ground}<path class="arrow" d="M390 45 L390 160"/></svg>`;
-  if (type === 'bridge') return `<svg viewBox="0 0 500 230" role="img" aria-label="Animated glute bridge demonstration"><g class="bridge"><circle class="joint" cx="175" cy="135" r="12"/><path class="person" d="M188 140 L260 145 L330 175 L390 190 M260 145 L245 190 M330 175 L345 190"/></g>${ground}<path class="arrow" d="M210 176 Q270 85 350 176"/></svg>`;
-  if (type === 'pike') return `<svg viewBox="0 0 500 230" role="img" aria-label="Animated pike push-up demonstration"><g class="pike"><circle class="joint" cx="160" cy="88" r="13"/><path class="person" d="M175 98 L245 125 L315 90 L385 175 M245 125 L210 180 M315 90 L345 180"/></g>${ground}<path class="arrow" d="M155 55 Q125 105 155 150"/></svg>`;
-  if (type === 'lunge') return `<svg viewBox="0 0 500 230" role="img" aria-label="Animated lunge demonstration"><g class="lunge"><circle class="joint" cx="250" cy="55" r="14"/><path class="person" d="M250 70 L250 120 L220 165 L180 190 M250 120 L315 160 L375 190 M250 92 L210 115 M250 92 L290 115"/></g>${ground}<path class="arrow" d="M150 120 Q130 165 160 185"/></svg>`;
-  return `<svg viewBox="0 0 500 230" role="img" aria-label="Animated exercise demonstration"><g class="${type}"><circle class="joint" cx="120" cy="88" r="13"/><path class="person" d="M135 98 L205 130 L285 145 L365 165 M205 130 L160 178 M205 130 L240 178 M285 145 L330 188 M365 165 L405 190"/></g>${ground}<path class="arrow" d="M120 55 Q95 115 120 165"/></svg>`;
+function mediaMarkup(exercise) {
+  return `<div class="media-frame"><img src="${exercise.media}" alt="Real-world demonstration of ${escapeHtml(exercise.name)}" loading="lazy" referrerpolicy="no-referrer"><div class="media-fallback" hidden><strong>${escapeHtml(exercise.name)}</strong><span>Animation unavailable</span></div></div>`;
 }
 
 function render() {
@@ -74,17 +68,28 @@ function render() {
     const exercise = EXERCISES[id];
     const saved = state[itemKey(index)] || {};
     const sets = parseInt(target, 10) || 3;
+    const difficulty = '★'.repeat(exercise.difficulty) + '☆'.repeat(5 - exercise.difficulty);
     return `<article class="exercise ${saved.open ? 'open' : ''}" data-index="${index}">
       <div class="row"><div><div class="name">${escapeHtml(name)}</div><div class="target">${escapeHtml(target)}</div></div><button class="btn extend" data-index="${index}">${saved.open ? 'Collapse' : 'Extend'}</button></div>
       <div class="details">
-        <div class="demo">${figure(exercise.type)}</div>
+        ${mediaMarkup(exercise)}
+        <div class="meta-grid">
+          <div><span>Difficulty</span><strong>${difficulty}</strong></div>
+          <div><span>Equipment</span><strong>${escapeHtml(exercise.equipment)}</strong></div>
+        </div>
+        <div class="chips">${exercise.muscles.map(m => `<span>${escapeHtml(m)}</span>`).join('')}</div>
         <div class="tip"><strong>How to:</strong> ${escapeHtml(exercise.how)}</div>
-        <div class="progression"><strong>Progression</strong>${escapeHtml(exercise.progression)}</div>
+        <div class="progression"><strong>Progression</strong>${exercise.progression.map((step, i) => `<span class="step ${i === 0 ? 'first' : ''}">${escapeHtml(step)}</span>`).join('<span class="arrow">→</span>')}</div>
         <div class="sets">${Array.from({length:sets},(_,setIndex)=>`<div class="set"><label>Set ${setIndex+1}<input class="rep" data-set="${setIndex}" inputmode="numeric" value="${escapeHtml(saved.reps?.[setIndex] || '')}" placeholder="reps"></label></div>`).join('')}</div>
         <label class="check"><input class="done" type="checkbox" ${saved.done ? 'checked' : ''}> Completed</label>
       </div>
     </article>`;
   }).join('');
+
+  document.querySelectorAll('.media-frame img').forEach(img => img.addEventListener('error', () => {
+    img.closest('.media-frame').querySelector('.media-fallback').hidden = false;
+    img.hidden = true;
+  }));
 
   document.querySelectorAll('.tab').forEach(button => button.addEventListener('click', () => {
     currentDay = button.dataset.day;
