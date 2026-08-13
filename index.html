@@ -1,26 +1,20 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#111827" />
-  <title>Calisthenics Tracker</title>
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-  <div class="app">
-    <header class="header">
-      <div><h1>Calisthenics Tracker</h1><p>Your home workout plan</p></div>
-      <div id="dayBadge" class="badge">Push</div>
-    </header>
-    <section class="difficulty-panel" aria-label="Workout difficulty">
-      <div class="difficulty-heading"><strong>Difficulty</strong><span id="difficultyDescription">Build strength</span></div>
-      <div id="difficultyPicker" class="difficulty-picker" role="group" aria-label="Select workout difficulty"></div>
-    </section>
-    <nav id="tabs" class="tabs" aria-label="Workout days"></nav>
-    <section id="stats" class="stats"></section>
-    <main id="workout"></main>
-  </div>
-  <script src="./app.js"></script>
-</body>
-</html>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#111827" /><title>Calisthenics Tracker</title><link rel="stylesheet" href="./styles.css" /></head>
+<body><div class="app">
+<header class="header"><div><h1>Calisthenics Tracker</h1><p>Your home workout plan</p></div><div id="dayBadge" class="badge">Push</div></header>
+<section class="difficulty-panel" aria-label="Workout difficulty"><div class="difficulty-heading"><strong>Difficulty</strong><span id="difficultyDescription"></span></div><div id="difficultyPicker" class="difficulty-picker" role="group" aria-label="Select workout difficulty"></div></section>
+<nav id="tabs" class="tabs" aria-label="Workout days"></nav><section id="stats" class="stats"></section><main id="workout"></main></div>
+<script src="./app.js"></script>
+<script>
+(function(){
+const L={beginner:['Beginner','Learn technique and build a base'],intermediate:['Intermediate','Build strength and control'],advanced:['Advanced','Increase intensity and skill'],elite:['Elite','Maximum challenge and volume']};
+const V={
+mon:{beginner:[['Incline push-ups','3 × 8–12'],['Push-ups','3 × 5–10'],['Plank','3 × 20–40 sec'],['Chair dips','2 × 8–12']],intermediate:[['Push-ups','4 × 8–15'],['Pike push-ups','3 × 6–12'],['Diamond push-ups','3 × 6–12'],['Chair dips','3 × 8–15'],['Plank','3 × 30–60 sec']],advanced:[['Diamond push-ups','4 × 8–15'],['Pike push-ups','4 × 8–15'],['Chair dips','4 × 10–15'],['Push-ups','3 × 15–25'],['Plank','3 × 45–75 sec']],elite:[['Diamond push-ups','5 × 10–20'],['Pike push-ups','4 × 10–18'],['Chair dips','4 × 12–20'],['Push-ups','3 × 20–30'],['Plank','4 × 60–90 sec']]},
+tue:{beginner:[['Australian rows','3 × 8–12'],['Negative pull-ups','3 × 3'],['Chin-ups','2 × 3–6'],['Hanging knee raises','2 × 6–10']],intermediate:[['Pull-ups','4 × 3–10'],['Australian rows','4 × 8–15'],['Negative pull-ups','3 × 3–6'],['Chin-ups','3 × 4–10'],['Hanging knee raises','3 × 8–15']],advanced:[['Pull-ups','5 × 6–12'],['Chin-ups','4 × 6–12'],['Australian rows','4 × 12–20'],['Hanging knee raises','4 × 10–18']],elite:[['Pull-ups','5 × 10–15'],['Chin-ups','4 × 10–15'],['Australian rows','4 × 15–25'],['Hanging knee raises','4 × 15–25']]},
+thu:{beginner:[['Bodyweight squats','3 × 10–15'],['Reverse lunges','2 × 6–10 / leg'],['Glute bridges','3 × 10–15'],['Calf raises','3 × 12–20 / leg']],intermediate:[['Bodyweight squats','4 × 10–20'],['Reverse lunges','3 × 8–15 / leg'],['Bulgarian split squats','3 × 8–15 / leg'],['Single-leg calf raises','4 × 12–20 / leg'],['Glute bridges','3 × 12–20'],['Plank','3 × 40–60 sec']],advanced:[['Tempo squats','4 × 12–20'],['Bulgarian split squats','4 × 10–15 / leg'],['Reverse lunges','3 × 12–18 / leg'],['Single-leg calf raises','4 × 15–25 / leg'],['Glute bridges','4 × 15–25']],elite:[['Tempo squats','5 × 15–25'],['Bulgarian split squats','5 × 12–20 / leg'],['Reverse lunges','4 × 15–20 / leg'],['Single-leg calf raises','5 × 20–30 / leg'],['Glute bridges','4 × 20–30']]},
+sat:{beginner:[['Incline push-ups','3 × 8–12'],['Australian rows','3 × 8–12'],['Bodyweight squats','3 × 10–15'],['Glute bridges','2 × 12–15'],['Plank','2 × 20–40 sec']],intermediate:[['Push-ups','3 × 8–15'],['Pull-ups','3 × 4–10'],['Bulgarian split squats','3 × 8–12 / leg'],['Pike push-ups','3 × 6–12'],['Hanging knee raises','3 × 8–15'],['Hollow body hold','3 × 20–40 sec']],advanced:[['Diamond push-ups','4 × 8–15'],['Pull-ups','4 × 6–12'],['Bulgarian split squats','4 × 10–15 / leg'],['Pike push-ups','4 × 8–15'],['Hanging knee raises','4 × 10–18'],['Hollow body hold','3 × 30–50 sec']],elite:[['Diamond push-ups','5 × 10–20'],['Pull-ups','5 × 8–15'],['Bulgarian split squats','5 × 12–20 / leg'],['Pike push-ups','4 × 10–18'],['Hanging knee raises','4 × 15–25'],['Hollow body hold','4 × 40–60 sec']]}};
+function apply(level){localStorage.setItem('ct-difficulty',level);const day=localStorage.getItem('ct-day')||'mon',v=V[day][level]||[];document.querySelectorAll('.exercise').forEach((card,i)=>{const x=v[i];card.style.display=x?'':'none';if(!x)return;const n=card.querySelector('.name'),t=card.querySelector('.target');if(n)n.textContent=x[0];if(t)t.textContent=x[1];const sets=card.querySelector('.sets'),count=parseInt(x[1])||3;if(sets)sets.innerHTML=Array.from({length:count},(_,j)=>'<div class="set"><label>Set '+(j+1)+'<input class="rep" data-set="'+j+'" inputmode="numeric" placeholder="'+(x[1].includes('sec')?'sec':'reps')+'"></label></div>').join('');});document.querySelectorAll('.difficulty-option').forEach(b=>{b.classList.toggle('active',b.dataset.level===level);b.setAttribute('aria-pressed',b.dataset.level===level)});document.getElementById('difficultyDescription').textContent=L[level][1]}
+const picker=document.getElementById('difficultyPicker');picker.innerHTML=Object.entries(L).map(([id,x])=>'<button class="difficulty-option" data-level="'+id+'">'+x[0]+'</button>').join('');picker.querySelectorAll('button').forEach(b=>b.onclick=()=>{localStorage.setItem('ct-difficulty',b.dataset.level);location.reload()});apply(localStorage.getItem('ct-difficulty')||'intermediate');
+})();
+</script></body></html>
